@@ -1,0 +1,57 @@
+g6neCQweXvtcJBlI sujalmhr10_db_user
+Shop.jsx (main page)
+ +- Hero.jsx            ? Top banner
+ +- Popular.jsx         ? Shows a few Item cards
+ �    +- Item.jsx       ? Single product card (id, name, image, prices)
+ �    +- Item.jsx
+ +- Offers.jsx          ? Could have more Item cards
+ +- NewCollections.jsx  ? Could have more Item cards
+ +- NewLetter.jsx       ? Newsletter section
+
+When you click an Item:
+
+Item.jsx
+ +- <Link to={`/product/${props.id}`}> ? navigates to Product page
+
+Product.jsx
+ +- Reads productId from URL (useParams)
+ +- Finds product from all_product (useContext)
+ +- Passes product as prop ? Breadcrum.jsx
+
+Breadcrum.jsx
+ +- Displays breadcrumb navigation
+      HOME ? SHOP ? product.category ? product.name
+
+
+App.js
+ +- <BrowserRouter>
+ �    +- <Navbar />            ? Always visible at top
+ �    +- <Routes>
+ �    �    +- "/" ? <Shop />                  ? Home page
+ �    �    �       +- <Hero />               ? Top banner
+ �    �    �       +- <Popular />            ? Contains multiple <Item /> cards
+ �    �    �       +- <Offers />             ? Multiple <Item /> cards
+ �    �    �       +- <NewCollections />     ? Multiple <Item /> cards
+ �    �    �       +- <NewLetter />          ? Newsletter section
+ �    �    �
+ �    �    +- "/mens" ? <ShopCategory banner={men_banner} category="men" />  
+ �    �    �       +- Displays banner (men_banner)
+ �    �    �       +- Shows sort bar / info
+ �    �    �       +- Loops over all_product from ShopContext
+ �    �    �       +- Renders <Item /> for each product where item.category === "men"
+ �    �    �
+ �    �    +- "/womens" ? <ShopCategory banner={women_banner} category="women" />  
+ �    �    �       +- Same as above but for women
+ �    �    �
+ �    �    +- "/kids" ? <ShopCategory banner={kid_banner} category="kid" />  
+ �    �    �       +- Same as above but for kids
+ �    �    �
+ �    �    +- "/product/:productId" ? <Product />  
+ �    �    �       +- Reads productId from URL via useParams()
+ �    �    �       +- Finds product from all_product in ShopContext
+ �    �    �       +- Passes product to <Breadcrum product={product} /> to show category & name
+ �    �    �
+ �    �    +- "/cart" ? <Cart />               ? Shows shopping cart
+ �    �    +- "/login" ? <LoginSignup />      ? Login / Signup page
+ �    �
+ �    +- <Footer />                            ? Always visible at bottom
