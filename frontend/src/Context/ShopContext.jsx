@@ -17,12 +17,12 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState(getDefaultCart());
 
   useEffect(() => {
-    fetch(`http://${BASE_URL}/allproducts`)
+    fetch(`${BASE_URL}/allproducts`)
       .then((response) => response.json())
       .then((data) => setAll_Product(data));
 
     if (localStorage.getItem("auth-token")) {
-      fetch(`http://${BASE_URL}/getcart`, {
+      fetch(`${BASE_URL}/getcart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -37,12 +37,12 @@ const ShopContextProvider = (props) => {
   }, []);
 
   /*useEffect(() => {
-    fetch(`http://${BASE_URL}/allproducts`)
+    fetch(`${BASE_URL}/allproducts`)
       .then((response) => response.json())
       .then((data) => setAll_Product(data));
 
       if(localStorage.getItem('auth-token')){
-        fetch(`http://${BASE_URL}/getcart`,{
+        fetch(`${BASE_URL}/getcart`,{
             method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -62,7 +62,7 @@ const ShopContextProvider = (props) => {
   const addToCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch(`http://${BASE_URL}/addtocart`, {
+      fetch(`${BASE_URL}/addtocart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",
@@ -79,7 +79,7 @@ const ShopContextProvider = (props) => {
   const removeFromCart = (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (localStorage.getItem("auth-token")) {
-      fetch(`http://${BASE_URL}/removefromcart`, {
+      fetch(`${BASE_URL}/removefromcart`, {
         method: "POST",
         headers: {
           Accept: "application/form-data",

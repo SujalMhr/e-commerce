@@ -17,7 +17,7 @@ const LoginSignup = () => {
   const login = async () => {
     console.log("Login Function Executed", formData);
     let responseData;
-    await fetch(`http://${BASE_URL}/login`, {
+    await fetch(`${BASE_URL}/login`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
@@ -39,7 +39,7 @@ const LoginSignup = () => {
   const signup = async () => {
     console.log("Sign up Function Executed", formData);
     let responseData;
-    await fetch(`http://${BASE_URL}/signup`, {
+    await fetch(`${BASE_URL}/signup`, {
       method: "POST",
       headers: {
         Accept: "application/form-data",
