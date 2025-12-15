@@ -33,7 +33,7 @@ mongoose
     console.log("Connected to MongoDB");
   })
   .catch((err) => {
-    console.log("Error connecting to MongoDB: ");
+    console.log("Error connecting to MongoDB: ", err);
   });
 
 //API creation
