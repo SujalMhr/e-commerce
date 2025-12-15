@@ -19,7 +19,7 @@ app.use(
       "http://localhost:3000",
       "http://localhost:5173",
       "http://localhost:4000",
-      "http://e-commerce-49z4ym4jb-sujal-maharjans-projects.vercel.app",
+      "https://e-commerce-rho-rosy-45.vercel.app",
     ],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
