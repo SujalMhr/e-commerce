@@ -13,7 +13,18 @@ dotenv.config();
 
 app.use(express.json());
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "http://localhost:5173",
+      "http://localhost:4000",
+      "http://e-commerce-49z4ym4jb-sujal-maharjans-projects.vercel.app",
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 //database connection
 mongoose
