@@ -12,8 +12,40 @@ import Footer from "./Components/Footer/Footer";
 import men_banner from "./Components/Assets/banner_mens.png";
 import women_banner from "./Components/Assets/banner_women.png";
 import kid_banner from "./Components/Assets/banner_kids.png";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchBackend = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch("https://e-commerce-6twd.onrender.com");
+
+        if (!res.ok) {
+          throw new Error("Backend not ready");
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (process.env.NODE_ENV === "production") {
+      fetchBackend();
+    }
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={{ textAlign: "center", marginTop: "200px" }}>
+        <h1>Backend Loading...</h1>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       <BrowserRouter>
