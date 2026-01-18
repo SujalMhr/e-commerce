@@ -4,8 +4,6 @@ import Item from "../Item/Item";
 import { BASE_URL } from "../../baseUrl";
 
 const NewCollections = () => {
-  console.log(BASE_URL, "inside new col");
-
   const [new_collection, setNew_collection] = useState([]);
 
   useEffect(() => {

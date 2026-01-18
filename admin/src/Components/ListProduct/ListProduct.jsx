@@ -4,8 +4,6 @@ import cross_icon from "../../assets/cross_icon.png";
 import { BASE_URL } from "../../../../frontend/src/baseUrl";
 
 const ListProduct = () => {
-  console.log(BASE_URL, "inside add product");
-
   const [allproducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
