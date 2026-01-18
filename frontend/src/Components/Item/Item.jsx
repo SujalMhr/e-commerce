@@ -10,6 +10,8 @@ const Item = (props) => {
 
   const imageUrl = `${BASE_URL}${pathname}`;
 
+  console.log(imageUrl, "image url");
+
   return (
     <div className="item">
       <Link to={`/product/${props.id}`}>
